@@ -1,0 +1,11 @@
+.content {
+  grid-area: c;
+  background-color: silver;
+  height: 800px;
+  width: 1000px;
+
+}
+
+.content :first-child img {
+  width: 100%;
+}

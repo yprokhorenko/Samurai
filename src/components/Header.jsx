@@ -1,8 +1,9 @@
 import React from 'react';
+import s from './Header.module.css'
 
 const Header = () => {
-    return (<header className="header">
-                <img src="https://w7.pngwing.com/pngs/70/772/png-transparent-vimeo-computer-icons-logo-short-film-vitag-svg-miscellaneous-television-text-thumbnail.png" alt="" />
+    return (<header className={s.header}>
+                <img src="https://img.icons8.com/clouds/200/000000/bbb.png" alt="" />
            </header>);
 }
 
