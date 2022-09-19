@@ -23,3 +23,7 @@ a {
 a:hover {
   background-color: rgb(48, 119, 54);
 }
+
+.item a.active {
+  background-color: rgb(48, 119, 54);
+}
