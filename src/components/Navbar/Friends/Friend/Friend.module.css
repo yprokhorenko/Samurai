@@ -1,0 +1,13 @@
+.itemPicture {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.friendItem {
+    /* border: 1px green solid; */
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
+    cursor: pointer;
+}

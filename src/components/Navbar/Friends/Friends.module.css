@@ -1,0 +1,14 @@
+.friendsBlock {
+    /* border: 2px red solid; */
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+.friendsTitle {
+    font-size: 28px;
+    color: rgb(54, 54, 110);
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+

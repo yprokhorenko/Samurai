@@ -23,6 +23,14 @@ let state = {
       { id: 3, message: "Yo" },
     ],
   },
+
+  
+  navFriends: [
+      { name: "Igor" },
+      { name: "Joe" },
+      { name: "Julia" },
+    ],
+  
 };
 
 export default state;
