@@ -24,13 +24,18 @@ let state = {
     ],
   },
 
+  navFriends: [{ name: "Igor" }, { name: "Joe" }, { name: "Julia" }],
+};
+
+export let addPost = (postMessage) => {
+  let newPost = {
+    id: 5,
+    message: postMessage,
+    likesCount: 0,
+  };
   
-  navFriends: [
-      { name: "Igor" },
-      { name: "Joe" },
-      { name: "Julia" },
-    ],
-  
+    state.profilePage.posts.push(newPost);
+
 };
 
 export default state;
