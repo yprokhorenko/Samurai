@@ -1,3 +1,5 @@
+
+let rerenderEntireTree = () => {}
 let state = {
   profilePage: {
     posts: [
@@ -5,6 +7,9 @@ let state = {
       { id: 2, message: "Ok, than", likesCount: 3 },
       { id: 3, message: "Don't text me plz?", likesCount: 6 },
     ],
+
+    newPostText: "Hello its me"
+
   },
 
   dialogsPage: {
@@ -27,15 +32,25 @@ let state = {
   navFriends: [{ name: "Igor" }, { name: "Joe" }, { name: "Julia" }],
 };
 
-export let addPost = (postMessage) => {
+
+export let addPost = () => {
   let newPost = {
     id: 5,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     likesCount: 0,
   };
   
     state.profilePage.posts.push(newPost);
-
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
 };
 
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+};
+
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer;
+}
 export default state;
