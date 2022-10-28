@@ -7,11 +7,12 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = (props) => {
+  debugger;
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar state={props.state.navFriends} />
+        <Navbar state={props.state} />
         <div className="app-wrapper-content">
           <Routes>
             <Route

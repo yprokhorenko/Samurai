@@ -2,7 +2,6 @@ import dialogsReducer from "./dialogs-reducer";
 import friendsReducer from "./friends-reducer";
 import profileReducer from "./profile-reducer";
 
-
 let store = {
   _state: {
     profilePage: {
@@ -51,7 +50,7 @@ let store = {
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
     this._state.navFriends = friendsReducer(this._state.navFriends, action);
     this._callSubscriber(this._state);
-  }
+  },
 };
 
-  export default store;
+export default store;

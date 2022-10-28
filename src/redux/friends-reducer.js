@@ -1,4 +1,8 @@
-const friendsReducer = (state, action) => {
+let initialState = {
+  navFriends: [{ name: "Igor" }, { name: "Joe" }, { name: "Julia" }]
+};
+
+const friendsReducer = (state = initialState, action) => {
   return state;
 };
 
