@@ -1,13 +1,12 @@
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import friendsReducer from "./friends-reducer";
-import {combineReducers, legacy_createStore as createStore} from "redux";
-
+import { combineReducers, legacy_createStore as createStore } from "redux";
 
 let reducers = combineReducers({
-  profileReducer,
-  dialogsReducer,
-  friendsReducer,
+  profilePage: profileReducer,
+  dialogsPage: dialogsReducer,
+  navFriends: friendsReducer,
 });
 
 let store = createStore(reducers);
