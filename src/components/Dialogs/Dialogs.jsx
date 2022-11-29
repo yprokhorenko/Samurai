@@ -12,11 +12,11 @@ const Dialogs = (props) => {
       let newMessageBody = state.newMessageBody;
 
       let onSendMessageClick = () => {
-        props.sendMessageCreator();
+        props.sendMessage();
       };
       let onNewMessageChange = (e) => {
         let body = e.target.value;
-        props.updateNewMessageBodyCreator(body);
+        props.updateNewMessageBody(body);
       };
 
   
@@ -34,7 +34,7 @@ const Dialogs = (props) => {
                   value={newMessageBody} 
                   placeholder = "Enter your message">
                 </textarea></div>
-            <div><button onClick = {onSendMessageClick}>Send</button></div>
+            <div><button onClick={onSendMessageClick}>Send</button></div>
           </div>
       </div>
     </div>
