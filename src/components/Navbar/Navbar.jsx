@@ -13,6 +13,9 @@ const Navbar = () => {
           <NavLink to="/dialogs" className={({ isActive }) => (isActive ? s.active : s.link)}>Messages</NavLink>
       </div>
       <div className={s.item}>
+          <NavLink to="/users" className={({ isActive }) => (isActive ? s.active : s.link)}>Users</NavLink>
+      </div>
+      <div className={s.item}>
           <a href="#">News</a>  
       </div>
       <div className={s.item}>
