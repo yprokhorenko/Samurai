@@ -6,6 +6,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/profile" element={<ProfileContainer isMain={true}/>} />
             <Route path="/profile/:userId" element={<ProfileContainer />} />
             <Route path="/users"   element={<UsersContainer />} />
+            <Route path="/login"   element={<Login />} />
           </Routes>
         </div>
       </div>
