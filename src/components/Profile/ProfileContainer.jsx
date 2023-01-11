@@ -48,10 +48,10 @@ function withRouter(Children) {
 }
 
 let mapStateToProps = (state) => ({
-  Profile: state.auth.Profile
+  profile: state.profilePage.profile
 });
 
-export default compose (
+export default compose(
   connect(mapStateToProps, {getUserProfile}),
   withRouter,
   withAuthRedirect
