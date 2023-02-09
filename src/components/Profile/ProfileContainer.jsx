@@ -18,7 +18,7 @@ function withRouter(Children) {
                   redirectToMainUser() {
                     let userId = this.props.match.params.userId;
                     // let userId = this.props.router.params.userId;
-                    if(!userId) {userId = 2};
+                    if(!userId) {userId = 27280};
                     this.props.getUserProfile(userId);
                     this.props.getStatus(userId);
                 }
@@ -37,7 +37,7 @@ function withRouter(Children) {
 
   componentDidMount() {
     let userId = this.props.match.params.userId;
-    if (!userId) {userId = 2};
+    if (!userId) {userId = 27280};
 
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);

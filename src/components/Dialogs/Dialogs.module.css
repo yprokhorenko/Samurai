@@ -41,3 +41,14 @@
 .dialogsItems a.active {
     background-color: rgb(48, 119, 54);
 }
+
+.textError {
+    margin-top: -4px;
+    font-size: 10px;
+    color: white;
+    position: absolute;
+}
+
+.btnSubmit {
+    margin-top: 8px;
+}

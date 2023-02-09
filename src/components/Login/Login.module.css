@@ -1,9 +1,9 @@
 
 .loginForm {
-    display: inline-block;
     text-align: center;
     margin-left: 350px;
     margin-top: 20px;
+    width: 200px;
 }
 
 h1 {
@@ -50,4 +50,11 @@ input {
     text-align: left;
     color:rgb(206, 206, 206);
     position: absolute;
+}
+
+.textError {
+    font-size: 10px;
+    color: white;
+    position: absolute;
+    margin-left: 12px;
 }
