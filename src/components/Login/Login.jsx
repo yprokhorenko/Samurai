@@ -1,63 +1,79 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage} from 'formik';
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import s from './Login.module.css';
+import s from "./Login.module.css";
+import { login } from "../../redux/auth-reducer";
+import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
+
 
 const Login = (props) => {
+  if (props.isAuth) return <Navigate to="/profile" />;
   return (
-    <div  className={s.loginForm}>
+    <div className={s.loginForm}>
       <h1>LOGIN</h1>
-      <LoginForm />
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+          rememberMe: false,
+          messages: null,
+        }}
+        validationSchema={Yup.object({
+          email: Yup.string()
+            .min(5, "Must be 5 characters or more")
+            .max(20, " Max 20 characters ")
+            .required("Required"),
+
+          password: Yup.string()
+            .min(8, "Must be 8 characters or more")
+            .max(20, "Max 20")
+            .required("Required"),
+        })}
+        onSubmit={(values, onSubmitProps) => {
+          // debugger;
+          props.login(values.email, values.password, values.rememberMe);
+          // onSubmitProps.setSubmitting(false);
+          // onSubmitProps.resetForm();
+          // console.log(values, props);
+        }}
+      >
+        {() => (
+          <Form>
+            <div className={s.inputContainer}>
+              <Field
+                name="email"
+                placeholder="E-mail"
+                type="email" /*autoComplete="off"*/
+              />
+              <div className={s.textError}>
+                <ErrorMessage name="email" />
+              </div>
+            </div>
+            <div className={s.inputContainer}>
+              <Field name="password" placeholder="Password" type="password" />
+              <div className={s.textError}>
+                <ErrorMessage name="password" />
+              </div>
+            </div>
+            <div className={s.checkbox}>
+              <Field type="checkbox" name="rememberMe" />
+              remember me
+              <ErrorMessage name="rememberMe" />
+            </div>
+            <button type="submit">Login</button>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };
 
 
-const LoginForm = (props) => {
-  return (
-    <Formik
-      initialValues={{ login: "", password: "" }}
-      validationSchema={Yup.object({
-        login: Yup.string()
-          .min(5, "Must be 5 characters or more")
-          .max(10, "Must be 10 characters or less")
-          .required("Required"),
-
-        password: Yup.string()
-          .min(8, "Must be 8 characters or more")
-          .max(15, "Must be 15 characters or less")
-          .required("Required"),
-      })}
-      onSubmit={(values, onSubmitProps) => {
-        onSubmitProps.setSubmitting(false);
-        onSubmitProps.resetForm();
-        console.log(values)
-      }}
-
-    >
-      <Form>
-        <div className={s.inputContainer}>
-          <Field name="login" placeholder="Login" autoComplete="off" />
-          <div className={s.textError}>
-            <ErrorMessage name="login" />
-          </div>
-        </div>
-        <div className={s.inputContainer}>
-          <Field name="password" placeholder="Password" autoComplete="off" />
-          <div className={s.textError}>
-            <ErrorMessage name="password" />
-          </div>
-        </div>
-        <div className={s.checkbox}>
-          <Field type="checkbox" name="rememberMe" />
-          remember me
-          <ErrorMessage name="rememberMe" />
-        </div>
-
-        <button type="submit">Login</button>
-      </Form>
-    </Formik>
-  );
+let mapStateToProps = (state) => {
+  return {
+    isAuth:state.auth.isAuth,
+  };
 };
 
-export default Login;
+export default connect(mapStateToProps, { login })(Login);
