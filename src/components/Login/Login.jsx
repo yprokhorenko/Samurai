@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 
 
 const Login = (props) => {
-  if (props.isAuth) return <Navigate to="/profile" />;
+  if (props.isAuth) return <Navigate to={"/profile/*"} />;
   return (
     <div className={s.loginForm}>
       <h1>LOGIN</h1>
@@ -30,17 +30,20 @@ const Login = (props) => {
             .max(20, "Max 20")
             .required("Required"),
         })}
-        onSubmit={(values, onSubmitProps) => {
+        validateOnBlur
+
+        const onSubmit={(values, { setSubmitting, setStatus, onSubmitProps}) => {
           // debugger;
-          props.login(values.email, values.password, values.rememberMe);
+          props.login(values.email, values.password, values.rememberMe, setStatus);
+          setSubmitting(false);
           // onSubmitProps.setSubmitting(false);
           // onSubmitProps.resetForm();
           // console.log(values, props);
         }}
       >
-        {() => (
+        {({ errors, touched, isValid, dirty, status}) => (
           <Form>
-            <div className={s.inputContainer}>
+            <div className={s.inputContainer}>  
               <Field
                 name="email"
                 placeholder="E-mail"
@@ -49,6 +52,7 @@ const Login = (props) => {
               <div className={s.textError}>
                 <ErrorMessage name="email" />
               </div>
+           
             </div>
             <div className={s.inputContainer}>
               <Field name="password" placeholder="Password" type="password" />
@@ -61,7 +65,8 @@ const Login = (props) => {
               remember me
               <ErrorMessage name="rememberMe" />
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">Login</button>  
+            <div className={s.statusStyle}>{status}</div>
           </Form>
         )}
       </Formik>

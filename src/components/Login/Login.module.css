@@ -58,3 +58,10 @@ input {
     position: absolute;
     margin-left: 12px;
 }
+.statusStyle {
+    font-size: 10px;
+    color: white;
+    position: absolute;
+    margin-left: 12px;
+    padding: 5px 30px;
+}
