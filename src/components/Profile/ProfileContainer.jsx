@@ -43,6 +43,9 @@ function withRouter(Children) {
     this.props.getStatus(userId);
   }
   render() {
+    if (!this.props.isAuth && !this.props.userId) {
+      return <Navigate to={'/login'} />
+   }
     return <Profile {...this.props} 
                     profile={this.props.profile}
                     status={this.props.status} 
