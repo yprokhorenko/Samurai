@@ -2,20 +2,3 @@
     height: 100px;
     width: 100px;
 }
-.selectedPage {
-    background-color: rgb(48, 119, 54);
-    font-weight: bold;
-} 
-
-.pagination span {
-    font-size: 8px;
-    padding: 2px 5px;
-    border-radius: 50%;
-    color: white;
-    font-weight: 400;
-    cursor: pointer;
-}
-.pagination {
-    width: 300px;
-    overflow: hidden;
-}
