@@ -27,10 +27,10 @@ import s from "./ProfileInfo.module.css";
   return (
     <div className={s.status}>
       {!editMode && (
-        <div>
+        <div> <b>Status</b>: 
           <span
             onDoubleClick={activateEditMode}>
-            {props.status || "-----"} 
+            {props.status || "-"} 
           </span>
         </div>
       )}

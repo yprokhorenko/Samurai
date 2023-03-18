@@ -5,7 +5,7 @@
 .descriptionPhoto {
     /* height: 150px; */
     max-width: 190px;
-    margin-bottom: -35px ;
+    margin-bottom: -15px ;
     padding: 0;
 }
 
@@ -17,4 +17,36 @@
     padding: 0;
     margin:  0 10px;
     font-size: 7px;
+}
+
+.contact {
+    padding-left: 13px;
+}
+
+.profileData div {
+    padding-left: 10px;
+    font-size: 12px; 
+}
+
+.profileDataInput {
+font-size: 13px;
+
+}
+
+.profileDataInput input[type=text] {
+    padding: 2px;
+    margin: 0;
+}
+
+.profileDataInput textarea {
+   max-width: 165px;
+   height: 20px;
+}
+.contactsError {
+    font-size: 20px;
+    color: red ;
+}
+.contactsErrStyle {
+     font-size: 20px;
+     color: red;
 }

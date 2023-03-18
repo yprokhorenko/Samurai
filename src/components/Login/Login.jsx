@@ -41,34 +41,36 @@ const Login = (props) => {
           // console.log(values, props);
         }}
       >
-        {({ errors, touched, isValid, dirty, status}) => (
-          <Form>
-            <div className={s.inputContainer}>  
-              <Field
-                name="email"
-                placeholder="E-mail"
-                type="email" /*autoComplete="off"*/
-              />
-              <div className={s.textError}>
-                <ErrorMessage name="email" />
-              </div>
-           
-            </div>
-            <div className={s.inputContainer}>
-              <Field name="password" placeholder="Password" type="password" />
-              <div className={s.textError}>
-                <ErrorMessage name="password" />
-              </div>
-            </div>
-            <div className={s.checkbox}>
-              <Field type="checkbox" name="rememberMe" />
-              remember me
-              <ErrorMessage name="rememberMe" />
-            </div>
-            <button type="submit">Login</button>  
-            <div className={s.statusStyle}>{status}</div>
-          </Form>
-        )}
+
+
+                            {({ errors, touched, isValid, dirty, status}) => (
+                              <Form>
+                                <div className={s.inputContainer}>  
+                                  <Field
+                                    name="email"
+                                    placeholder="E-mail"
+                                    type="email" /*autoComplete="off"*/
+                                  />
+                                  <div className={s.textError}>
+                                    <ErrorMessage name="email" />
+                                  </div>
+                              
+                                </div>
+                                <div className={s.inputContainer}>
+                                  <Field name="password" placeholder="Password" type="password" />
+                                  <div className={s.textError}>
+                                    <ErrorMessage name="password" />
+                                  </div>
+                                </div>
+                                <div className={s.checkbox}>
+                                  <Field type="checkbox" name="rememberMe" />
+                                  remember me
+                                  <ErrorMessage name="rememberMe" />
+                                </div>
+                                <button type="submit">Login</button>  
+                                <div className={s.statusStyle}>{status}</div>
+                              </Form>
+                            )}
       </Formik>
     </div>
   );

@@ -6,7 +6,7 @@ import * as Yup from "yup";
 
 const MyPosts = (props) => {
 
-    let postsElements = props.posts.map((p) => <Post message={p.message} likesCount={p.likesCount} /> );
+    let postsElements = props.posts.map((p) => <Post key={p.id} message={p.message} likesCount={p.likesCount} /> );
 
     // let newPostElement = React.createRef ();
 
