@@ -10,18 +10,18 @@ const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "TOGGLE_IS_FOLLOWING_PROGRESS";
 
 
-let initialState = {
+let initialState = { //https://youtu.be/ap8HxJPwJhY?t=1470
   users: [],
   pageSize: 5,
   totalItemsCount: 0,
-  currentPage: 1,
-  isFetching: true,
-  followingInProgress: []
+  currentPage: 1, //https://youtu.be/ap8HxJPwJhY?t=1893
+  isFetching: true, //https://youtu.be/qE8ThPt1EIM?t=380 //https://youtu.be/iobMksCYGHE?t=201
+  followingInProgress: [] //https://youtu.be/iobMksCYGHE?t=201 //https://youtu.be/iobMksCYGHE?t=805
 };
 
-const usersReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => { 
   switch (action.type) {
-    case FOLLOW:
+    case FOLLOW: //https://youtu.be/ceSZUZZaW30?t=1429
       return {
         ...state,
         users: state.users.map((u) => {
@@ -31,7 +31,7 @@ const usersReducer = (state = initialState, action) => {
           return u;
         }),
       };
-    case UNFOLLOW:
+    case UNFOLLOW: //https://youtu.be/ceSZUZZaW30?t=1863
       return {
         ...state,
         users: state.users.map((u) => {
@@ -41,22 +41,22 @@ const usersReducer = (state = initialState, action) => {
           return u;
         }),
       };
-    case SET_USERS: {
+    case SET_USERS: { //https://youtu.be/ceSZUZZaW30?t=1919
       return {
         ...state,
-        users: action.users,
+        users: action.users, //https://youtu.be/ap8HxJPwJhY?t=3124
       };
     }
-    case SET_CURRENT_PAGE: {
+    case SET_CURRENT_PAGE: {                                            //https://youtu.be/ap8HxJPwJhY?t=2451
       return { ...state, currentPage: action.currentPage };
     }
     case SET_TOTAL_USERS_COUNT: {
       return { ...state, totalItemsCount: action.count };
     }
     case TOGGLE_IS_FETCHING: {
-      return { ...state, isFetching: action.isFetching };
+      return { ...state, isFetching: action.isFetching }; //https://youtu.be/qE8ThPt1EIM?t=920
     }
-    case TOGGLE_IS_FOLLOWING_PROGRESS: {
+    case TOGGLE_IS_FOLLOWING_PROGRESS: { //https://youtu.be/iobMksCYGHE?t=805
       return {
         ...state,
         followingInProgress: action.isFetching
@@ -73,12 +73,12 @@ const usersReducer = (state = initialState, action) => {
 export const followSuccess = (userId) => ({type: FOLLOW, userId });
 export const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId});
 export const setUsers = (users) => ({ type: SET_USERS, users });
-export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
+export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage }); 
 export const setTotalItemsCount = (totalItemsCount) => ({ type: SET_TOTAL_USERS_COUNT, count: totalItemsCount});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})
 
-export const requestUsers = (requestedPage, pageSize) => {
+export const requestUsers = (requestedPage, pageSize) => { //https://youtu.be/tZahQsOc9Jk?t=365 https://youtu.be/dtKX3JyeVts?t=306
   return async (dispatch) => {
     dispatch(toggleIsFetching(true));
     // dispatch(setCurrentPage(requestedPage)) #81

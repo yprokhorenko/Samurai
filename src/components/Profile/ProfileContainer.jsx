@@ -14,7 +14,7 @@ function withRouter(Children) {
   };
 }
 
-        class ProfileContainer extends React.Component {
+class ProfileContainer extends React.Component {   //https://youtu.be/MM02LsZqssQ?t=712
 
           // refreshProfile() {
           //   let userId = this.props.match.params.userId;
@@ -38,48 +38,51 @@ function withRouter(Children) {
           // }
 
                   refreshProfile() {
-                    let userId = this.props.match.params.userId;
+                    let userId = this.props.match.params.userId; //https://youtu.be/e6SpHkb0E3I?t=1159   //https://youtu.be/GFN1D81sBEw?t=1882
                      if(!userId) {userId = this.props.authorizedUserId}
-                    this.props.getUserProfile(userId);
-                    this.props.getStatus(userId);
+                    this.props.getUserProfile(userId); //https://youtu.be/18hAMlMkQks?t=278
+                    this.props.getStatus(userId); //https://youtu.be/1faxVHNBnsU?t=692
                 }
 
                 componentDidMount() {
                     this.refreshProfile();
                 }
 
-                componentDidUpdate(prevProps){
-                    // if(this.props.isMain !== prevProps.isMain) {
+                componentDidUpdate(prevProps){ //https://youtu.be/wcwG-pofoZk?t=337
+                    // if(this.props.isMain !== prevProps.isMain) { //https://youtu.be/wcwG-pofoZk?t=657
                     //     if(this.props.isMain){
                     //         this.refreshProfile();
                     //     }
                     // }
-                    if (this.props.match.params.userId !=prevProps.match.params.userId) {
-                      this.refreshProfile();
+                    if (this.props.match.params.userId !=prevProps.match.params.userId) {  //https://youtu.be/fnzO0U1mSb8?t=706
+                      this.refreshProfile(); 
                     }
                 }
 
   render() {
-    if (!this.props.isAuth && !this.props.userId) {
+    if (!this.props.isAuth && !this.props.userId) { //https://youtu.be/_X3dVadZp2U?t=595
       return <Navigate to={'/login'} />
    }
     return <Profile {...this.props} 
-                    isOwner = {!this.props.match.params.userId}
+                    isOwner = {!this.props.match.params.userId} //https://youtu.be/fnzO0U1mSb8?t=869
                     savePhoto={this.props.savePhoto}
                     profile={this.props.profile}
                     status={this.props.status} 
-                    updateStatus={this.props.updateStatus}/>;
+                    updateStatus={this.props.updateStatus}/>; //https://youtu.be/1faxVHNBnsU?t=1172
   }
 }
 
 let mapStateToProps = (state) => ({
-  profile: state.profilePage.profile,
+  profile: state.profilePage.profile, //https://youtu.be/MM02LsZqssQ?t=1766
   status:  state.profilePage.status,
   authorizedUserId: state.auth.userId,
-  isAuth: state.auth.isAuth
+  isAuth: state.auth.isAuth //https://youtu.be/_X3dVadZp2U?t=595
 });
 
 export default compose(
   connect(mapStateToProps, { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile }),
-  withRouter
+  withRouter //https://youtu.be/e6SpHkb0E3I?t=844
 )(ProfileContainer);
+
+//https://youtu.be/wcwG-pofoZk?t=609 setState in CompDidUpdate. setState мають завжди бути всередині умови.
+// Navigate (Redirect) через history.push  https://youtu.be/GFN1D81sBEw?t=2171 , перемотати хв 5-10 раніше

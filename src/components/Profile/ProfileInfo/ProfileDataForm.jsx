@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import s from "./ProfileInfo.module.css";
 
 
-const ProfileDataForm = ({profile, saveProfile,setStatus,setEditMode, _error}) => {
+const ProfileDataForm = ({profile, saveProfile,setStatus,setEditMode,error, ...props}) => {
   return (
     <Formik
     initialValues={profile || {
@@ -26,23 +26,22 @@ const ProfileDataForm = ({profile, saveProfile,setStatus,setEditMode, _error}) =
     // })}
     // validateOnBlur
 
-     const onSubmit = {(values, {setStatus}) => {
+     const onSubmit = {(values, {setStatus}) => { //https://youtu.be/-tDhjScH_0s?t=2078
       // debugger;
-      saveProfile(values,setStatus);
+      saveProfile(values);
       console.log(values); 
-      // setEditMode(false);
+      // setEditMode(false); //https://youtu.be/-tDhjScH_0s?t=2911
 //       // setSubmitting(false);
 //       // onSubmitProps.setSubmitting(false);
    }}
   >
-    {({ }) => (
+    {({ error}) => (
       <Form >
-      <button type="submit" >Save</button> {_error && <div className={s.contactsErrStyle}>{_error}</div>}
+      <button type="submit" >Save</button>          <p className={s.contactsErrStyle}>{error}</p> 
         <div className={s.profileDataInput}> <b>Full name:</b><br/>  
           <Field name="fullName" placeholder="Full name" type="text" autoComplete="off" />
           <ErrorMessage name="fullName" />
         </div>
-
         <div className={s.profileDataInput}> <b>Looking For A Job:</b><br/>  {profile.lookingForAJob ? "yes" : "no"}
           <Field name="lookingForAJob" type="checkbox" /*autoComplete="off"*/ />
           <div className={s.textError}>
@@ -65,8 +64,8 @@ const ProfileDataForm = ({profile, saveProfile,setStatus,setEditMode, _error}) =
         </div>
 
         <div >
-          <b>Contacts</b>:  {Object.keys(profile.contacts).map(key => {
-           return  <div key={key}> 
+          <b>Contacts</b>:  {Object.keys(profile.contacts).map(key => { //https://youtu.be/-tDhjScH_0s?t=3196
+           return  <div key={key}>  
                         <div >{key} : <Field name={'contacts.' + key} placeholder={key}  />
 
                              
@@ -83,7 +82,5 @@ const ProfileDataForm = ({profile, saveProfile,setStatus,setEditMode, _error}) =
   </Formik>
   );
 };
-
-
 
 export default ProfileDataForm;

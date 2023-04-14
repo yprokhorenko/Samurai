@@ -9,7 +9,7 @@ const Profile = (props) => {
       <ProfileInfo
           isOwner={props.isOwner}
           savePhoto={props.savePhoto}
-          profile={props.profile}
+          profile={props.profile} //https://youtu.be/MM02LsZqssQ?t=1907
           status={props.status}
           updateStatus={props.updateStatus}
           saveProfile={props.saveProfile}

@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 
 
 const Login = (props) => {
-  if (props.isAuth) return <Navigate to={"/profile/*"} />;
+  if (props.isAuth) return <Navigate to={"/profile/*"} />; //https://youtu.be/oWeSh6-Mrvg?t=1383
   return (
     <div className={s.loginForm}>
       <h1>LOGIN</h1>
@@ -83,4 +83,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, { login })(Login); //https://youtu.be/oWeSh6-Mrvg?t=1025 https://youtu.be/oWeSh6-Mrvg?t=1120

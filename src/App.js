@@ -16,7 +16,7 @@ class App extends React.Component {
     this.props.initializeApp();
   }
   render() {
-    if (!this.props.initialized) {
+    if (!this.props.initialized) {  //https://youtu.be/GFN1D81sBEw?t=1775
       return <Preloader />;
     }
     return (
@@ -27,7 +27,7 @@ class App extends React.Component {
           <Routes>
             <Route path="/dialogs" element={<DialogsContainer />} />
             <Route path="/profile" element={<ProfileContainer isMain={true} />} />
-            <Route path="/profile/:userId" element={<ProfileContainer />} />
+            <Route path="/profile/:userId" element={<ProfileContainer />} /> //https://youtu.be/e6SpHkb0E3I?t=1159
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/login" element={<Login />} />
           </Routes>
@@ -37,7 +37,11 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized,
+  initialized: state.app.initialized, //https://youtu.be/GFN1D81sBEw?t=1515
 });
 
 export default connect(mapStateToProps, { initializeApp })(App);
+//https://youtu.be/e6SpHkb0E3I?t=1463 показ свій профіль по /profile
+//https://youtu.be/78ak5Jqmh9g?t=1400 методи і ф в функц і класс комп
+//https://youtu.be/_jyrQh0ZdTA?t=367 dispatch 
+//https://youtu.be/_jyrQh0ZdTA?t=726 z 4 min mapStateToProps

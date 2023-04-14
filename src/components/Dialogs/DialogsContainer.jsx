@@ -19,7 +19,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default compose (
+export default compose ( 
   connect(mapStateToProps, mapDispatchToProps),
   withAuthRedirect
 ) (Dialogs);
+
+// compose https://youtu.be/tf4E6tw8ZVw?t=115 загальне 

@@ -20,7 +20,7 @@ const Dialogs = (props) => {
   // let addNewMessage = (values) => {
   //   props.sendMessage(values.newMessageBody);
   // };
-  if (!props.isAuth) return <Navigate to={"/Login"} />;
+  if (!props.isAuth) return <Navigate to={"/Login"} />; //https://youtu.be/_X3dVadZp2U?t=364
 
   return (
     <div className={s.dialogs}>
